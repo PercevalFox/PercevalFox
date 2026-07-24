@@ -25,7 +25,7 @@
 identity:
   handle:   PercevalFox 🦊
   name:     Steven Le Bris
-  role:     Lead DevSecOps · Cybersecurity Expert · Enseignant
+  role:     Lead DevSecOps · Pentester · Cybersecurity Expert · Enseignant
   location: France · remote-first
   org:      rootcamp.dev  |  GraalForge
 
@@ -35,7 +35,7 @@ posture:
   purple:     "je casse ce que je construis, puis je le reconstruis mieux"
 
 fleet_managed:    1900+ serveurs (RHEL 6→9)
-years_in_the_red: 7+
+years_in_it:      11+
 teaching:         ESGI — sécu SI, Linux, social engineering, gouvernance
 ```
 
