@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Le Graal, avec une saucisse dedans">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8A4500"/>
+      <stop offset="45%" stop-color="#FFD86B"/>
+      <stop offset="100%" stop-color="#C46A00"/>
+    </linearGradient>
+
+    <linearGradient id="inner" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3A2008"/>
+      <stop offset="100%" stop-color="#8A5312"/>
+    </linearGradient>
+
+    <radialGradient id="halo" cx="50%" cy="32%" r="55%">
+      <stop offset="0%" stop-color="#FFD86B" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#FFD86B" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="gglow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4.5" result="b"/>
+      <feComponentTransfer in="b" result="b2"><feFuncA type="linear" slope="0.6"/></feComponentTransfer>
+      <feMerge><feMergeNode in="b2"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="rayblur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <clipPath id="cup"><ellipse cx="100" cy="58" rx="50" ry="13"/></clipPath>
+  </defs>
+
+  <circle cx="100" cy="66" r="78" fill="url(#halo)"/>
+
+  <g fill="#FFD86B" filter="url(#rayblur)">
+    <polygon points="100,60 56,10 70,4" opacity="0.28">
+      <animate attributeName="opacity" values="0.28;0.09;0.28" dur="4s" repeatCount="indefinite"/></polygon>
+    <polygon points="100,60 82,4 94,1" opacity="0.40">
+      <animate attributeName="opacity" values="0.40;0.15;0.40" dur="3.2s" begin="0.5s" repeatCount="indefinite"/></polygon>
+    <polygon points="100,60 108,1 120,6" opacity="0.40">
+      <animate attributeName="opacity" values="0.40;0.13;0.40" dur="3.6s" begin="1.1s" repeatCount="indefinite"/></polygon>
+    <polygon points="100,60 132,8 144,18" opacity="0.26">
+      <animate attributeName="opacity" values="0.26;0.09;0.26" dur="4.4s" begin="0.2s" repeatCount="indefinite"/></polygon>
+    <polygon points="100,60 44,26 40,40" opacity="0.20">
+      <animate attributeName="opacity" values="0.20;0.07;0.20" dur="5s" begin="1.6s" repeatCount="indefinite"/></polygon>
+  </g>
+
+  <!-- calice : facettes + intérieur -->
+  <g filter="url(#gglow)" stroke="#3A1D00" stroke-width="1.3" stroke-linejoin="round">
+    <polygon points="50,58 75,58 82,88 64,88"       fill="#A85A00"/>
+    <polygon points="75,58 100,58 100,88 82,88"     fill="#FFB020"/>
+    <polygon points="100,58 125,58 118,88 100,88"   fill="#FFD86B"/>
+    <polygon points="125,58 150,58 136,88 118,88"   fill="#9C5200"/>
+    <polygon points="64,88 82,88 93,112 86,112"     fill="#C46A00"/>
+    <polygon points="82,88 100,88 100,112 93,112"   fill="#FFC64A"/>
+    <polygon points="100,88 118,88 107,112 100,112" fill="#E89A10"/>
+    <polygon points="118,88 136,88 114,112 107,112" fill="#8A4500"/>
+    <polygon points="93,112 107,112 106,124 94,124"  fill="#D07800"/>
+    <polygon points="100,118 114,131 100,144 86,131" fill="#FFD86B"/>
+    <polygon points="100,118 114,131 100,144"        fill="#C46A00"/>
+    <polygon points="94,142 106,142 109,158 91,158"  fill="#D07800"/>
+    <polygon points="91,158 109,158 134,174 66,174"  fill="#FFB020"/>
+    <ellipse cx="100" cy="174" rx="34" ry="8" fill="url(#gold)"/>
+  </g>
+
+  <!-- creux de la coupe -->
+  <ellipse cx="100" cy="58" rx="50" ry="13" fill="url(#inner)" stroke="none"/>
+
+  <!-- LA SAUCISSE, au fond du Graal, découpée par le bord de la coupe -->
+  <g clip-path="url(#cup)">
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.15s" begin="1.4s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate"
+                        values="0,-30; 0,4; 0,-2; 0,0" keyTimes="0;0.6;0.82;1"
+                        dur="0.7s" begin="1.4s" fill="freeze"/>
+      <path d="M 70,60 C 82,71 118,71 132,58" fill="none" stroke="#6B2F18" stroke-width="19" stroke-linecap="round"/>
+      <path d="M 70,60 C 82,71 118,71 132,58" fill="none" stroke="#B85C38" stroke-width="15" stroke-linecap="round"/>
+      <path d="M 73,56 C 84,65 116,65 130,54" fill="none" stroke="#D9865C" stroke-width="3.5"
+            stroke-linecap="round" opacity="0.8"/>
+      <path d="M 88,63 l 1,7 M 104,66 l 0,7 M 119,62 l -1,7" stroke="#6B2F18" stroke-width="2.2"
+            stroke-linecap="round" opacity="0.55"/>
+    </g>
+  </g>
+
+  <!-- bord du calice, PAR-DESSUS la saucisse -->
+  <g filter="url(#gglow)">
+    <ellipse cx="100" cy="58" rx="50" ry="13" fill="none" stroke="#FFD86B" stroke-width="3"/>
+    <path d="M 56,62 A 50 13 0 0 0 144,62" fill="none" stroke="#FFE9A8" stroke-width="2.5" opacity="0.55"/>
+  </g>
+
+  <g fill="#FFF3C4">
+    <path d="M40,62 l2.5,6 6,2.5 -6,2.5 -2.5,6 -2.5,-6 -6,-2.5 6,-2.5 z">
+      <animate attributeName="opacity" values="0;1;0" dur="2.6s" repeatCount="indefinite"/></path>
+    <path d="M162,70 l2,5 5,2 -5,2 -2,5 -2,-5 -5,-2 5,-2 z">
+      <animate attributeName="opacity" values="0;1;0" dur="3.1s" begin="1.2s" repeatCount="indefinite"/></path>
+    <path d="M140,112 l1.8,4.5 4.5,1.8 -4.5,1.8 -1.8,4.5 -1.8,-4.5 -4.5,-1.8 4.5,-1.8 z">
+      <animate attributeName="opacity" values="0;1;0" dur="3.6s" begin="2.1s" repeatCount="indefinite"/></path>
+  </g>
+</svg>
