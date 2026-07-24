@@ -10,6 +10,9 @@ on:
 permissions:
   contents: write
 
+# Token requis : PAT classic, scope read:user uniquement.
+# Aucun autre scope n'est nécessaire pour les plugins ci-dessous.
+
 jobs:
   metrics:
     runs-on: ubuntu-latest
@@ -20,10 +23,10 @@ jobs:
         with:
           filename: metrics/overview.svg
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
           user: PercevalFox
           base: header, activity, community, repositories
           config_timezone: Europe/Paris
-          config_theme: dark
           plugin_lines: yes
 
       - name: Isometric calendar
@@ -32,10 +35,10 @@ jobs:
         with:
           filename: metrics/calendar.svg
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
           user: PercevalFox
           base: ""
           config_timezone: Europe/Paris
-          config_theme: dark
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
 
@@ -45,46 +48,26 @@ jobs:
         with:
           filename: metrics/languages.svg
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
           user: PercevalFox
           base: ""
-          config_theme: dark
           plugin_languages: yes
           plugin_languages_details: bytes-size, percentage
           plugin_languages_limit: 12
           plugin_languages_sections: most-used
 
-      # Le plugin habits est capricieux : il lui faut les scopes public_repo + read:org
-      # pour lire le contenu des commits. Si l'erreur persiste, commente ce step
-      # et décommente le suivant.
-      - name: Habits
+      # Remplace plugin_habits, cassé en amont :
+      # TypeError sur payload.commits undefined (push sans commit = branche/tag)
+      - name: Topics
         if: ${{ success() || failure() }}
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics/habits.svg
+          filename: metrics/topics.svg
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           user: PercevalFox
           base: ""
-          config_timezone: Europe/Paris
-          config_theme: dark
-          plugin_habits: yes
-          plugin_habits_from: 100          # moins d'events = moins de risque de timeout
-          plugin_habits_days: 14
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
-          plugin_habits_trim: yes
-
-      # --- Alternative si habits refuse de coopérer ---
-      # - name: Achievements
-      #   if: ${{ success() || failure() }}
-      #   uses: lowlighter/metrics@latest
-      #   with:
-      #     filename: metrics/habits.svg
-      #     token: ${{ secrets.METRICS_TOKEN }}
-      #     committer_token: ${{ secrets.GITHUB_TOKEN }}
-      #     user: PercevalFox
-      #     base: ""
-      #     config_theme: dark
-      #     plugin_achievements: yes
-      #     plugin_achievements_only: developer, maintainer, explorer, polyglot, stargazer
-      #     plugin_achievements_threshold: C
+          plugin_topics: yes
+          plugin_topics_mode: icons
+          plugin_topics_limit: 20
+          plugin_topics_sort: stars
