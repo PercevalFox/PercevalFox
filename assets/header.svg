@@ -34,6 +34,14 @@
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
+    <filter id="foxglow" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feComponentTransfer in="b" result="b2">
+        <feFuncA type="linear" slope="0.6"/>
+      </feComponentTransfer>
+      <feMerge><feMergeNode in="b2"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
     <clipPath id="frame"><rect x="1" y="1" width="998" height="318" rx="14"/></clipPath>
 
     <clipPath id="l1"><rect x="40" y="96" height="20" width="0"><animate attributeName="width" from="0" to="240" dur="0.5s" begin="0.3s" fill="freeze"/></rect></clipPath>
@@ -100,18 +108,49 @@
       </rect>
     </g>
 
-    <!-- ASCII fox -->
-    <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" fill="url(#foxgrad)" filter="url(#glow)" xml:space="preserve" opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="1.4s" begin="5.6s" fill="freeze"/>
-      <text x="700" y="86">      /\   /\ </text>
-      <text x="700" y="101">     //\\_//\\ </text>
-      <text x="700" y="116">     \_     _/ </text>
-      <text x="700" y="131">      / . . \  </text>
-      <text x="700" y="146">      \_\O/_/  </text>
-      <text x="700" y="161">       /   \_  </text>
-      <text x="700" y="176">       \     \_</text>
-      <text x="700" y="191">        [ [ /\ </text>
-      <text x="700" y="206">       _[ [ \ \</text>
+    <!-- low-poly fox -->
+    <g opacity="0" filter="url(#foxglow)">
+      <animate attributeName="opacity" from="0" to="1" dur="1.2s" begin="5.4s" fill="freeze"/>
+      <g transform="translate(723,44) scale(0.76)" stroke="#0b0e14" stroke-width="1.4" stroke-linejoin="round">
+
+        <!-- ears -->
+        <polygon points="30,72 19,3 76,58" fill="#e8770d"/>
+        <polygon points="170,72 181,3 124,58" fill="#ff9c33"/>
+        <polygon points="35,62 27,23 64,56" fill="#b83b00"/>
+        <polygon points="165,62 173,23 136,56" fill="#c94400"/>
+
+        <!-- head facets -->
+        <polygon points="100,46 30,72 100,122" fill="#ff9c33"/>
+        <polygon points="100,46 170,72 100,122" fill="#ff8c1a"/>
+        <polygon points="30,72 22,102 100,122" fill="#e8770d"/>
+        <polygon points="170,72 178,102 100,122" fill="#d96a00"/>
+        <polygon points="22,102 60,150 100,122" fill="#ff8c1a"/>
+        <polygon points="178,102 140,150 100,122" fill="#e8770d"/>
+
+        <!-- muzzle / joues -->
+        <polygon points="60,150 100,182 100,122" fill="#f7e6cd"/>
+        <polygon points="140,150 100,182 100,122" fill="#dcc4a2"/>
+
+        <!-- orbites -->
+        <polygon points="52,96 84,85 90,101 60,110" fill="#0b0e14" stroke="none"/>
+        <polygon points="148,96 116,85 110,101 140,110" fill="#0b0e14" stroke="none"/>
+
+        <!-- truffe -->
+        <polygon points="87,157 113,157 100,177" fill="#12161c" stroke="none"/>
+
+        <!-- yeux terminal -->
+        <g fill="#39ff14" stroke="none" filter="url(#glow)">
+          <polygon points="61,98 80,90 84,100 66,106">
+            <animate attributeName="opacity" values="1;1;0.08;1;1;0.08;1"
+                     keyTimes="0;0.62;0.645;0.67;0.80;0.825;1" dur="6s" repeatCount="indefinite"/>
+          </polygon>
+          <polygon points="139,98 120,90 116,100 134,106">
+            <animate attributeName="opacity" values="1;1;0.08;1;1;0.08;1"
+                     keyTimes="0;0.62;0.645;0.67;0.80;0.825;1" dur="6s" repeatCount="indefinite"/>
+          </polygon>
+        </g>
+
+      </g>
     </g>
 
     <!-- title block -->

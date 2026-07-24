@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="PercevalFox">
+  <defs>
+    <filter id="fg" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feComponentTransfer in="b" result="b2"><feFuncA type="linear" slope="0.6"/></feComponentTransfer>
+      <feMerge><feMergeNode in="b2"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="eg" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <g filter="url(#fg)" transform="translate(0,6)" stroke="#0b0e14" stroke-width="1.4" stroke-linejoin="round">
+    <!-- oreilles -->
+    <polygon points="30,72 19,3 76,58" fill="#e8770d"/>
+    <polygon points="170,72 181,3 124,58" fill="#ff9c33"/>
+    <polygon points="35,62 27,23 64,56" fill="#b83b00"/>
+    <polygon points="165,62 173,23 136,56" fill="#c94400"/>
+
+    <!-- facettes du crâne -->
+    <polygon points="100,46 30,72 100,122" fill="#ff9c33"/>
+    <polygon points="100,46 170,72 100,122" fill="#ff8c1a"/>
+    <polygon points="30,72 22,102 100,122" fill="#e8770d"/>
+    <polygon points="170,72 178,102 100,122" fill="#d96a00"/>
+    <polygon points="22,102 60,150 100,122" fill="#ff8c1a"/>
+    <polygon points="178,102 140,150 100,122" fill="#e8770d"/>
+
+    <!-- museau -->
+    <polygon points="60,150 100,182 100,122" fill="#f7e6cd"/>
+    <polygon points="140,150 100,182 100,122" fill="#dcc4a2"/>
+
+    <!-- orbites -->
+    <polygon points="52,96 84,85 90,101 60,110" fill="#0b0e14" stroke="none"/>
+    <polygon points="148,96 116,85 110,101 140,110" fill="#0b0e14" stroke="none"/>
+
+    <!-- truffe -->
+    <polygon points="87,157 113,157 100,177" fill="#12161c" stroke="none"/>
+
+    <!-- yeux terminal -->
+    <g fill="#39ff14" stroke="none" filter="url(#eg)">
+      <polygon points="61,98 80,90 84,100 66,106">
+        <animate attributeName="opacity" values="1;1;0.08;1;1;0.08;1"
+                 keyTimes="0;0.62;0.645;0.67;0.80;0.825;1" dur="6s" repeatCount="indefinite"/>
+      </polygon>
+      <polygon points="139,98 120,90 116,100 134,106">
+        <animate attributeName="opacity" values="1;1;0.08;1;1;0.08;1"
+                 keyTimes="0;0.62;0.645;0.67;0.80;0.825;1" dur="6s" repeatCount="indefinite"/>
+      </polygon>
+    </g>
+  </g>
+</svg>
