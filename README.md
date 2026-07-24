@@ -314,7 +314,7 @@ $ fleet --status
 <img src="./metrics/languages.svg" width="49%" alt="langages"/>
 
 <img src="./metrics/calendar.svg" width="49%" alt="calendrier isométrique"/>
-<img src="./metrics/habits.svg" width="49%" alt="habitudes"/>
+<img src="./metrics/topics.svg" width="49%" alt="topics"/>
 
 <br/>
 
