@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="1000" height="320" role="img" aria-label="PercevalFox - Lead DevSecOps / Red Team">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0e14"/>
+      <stop offset="55%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#12090a"/>
+    </linearGradient>
+
+    <linearGradient id="foxgrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffb347"/>
+      <stop offset="55%" stop-color="#ff8c1a"/>
+      <stop offset="100%" stop-color="#ff4d00"/>
+    </linearGradient>
+
+    <linearGradient id="titlegrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff8c1a"/>
+      <stop offset="50%" stop-color="#ffd28a"/>
+      <stop offset="100%" stop-color="#ff003c"/>
+      <animate attributeName="x1" values="-1;0;-1" dur="7s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="0;2;0" dur="7s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
+      <path d="M26 0H0V26" fill="none" stroke="#ff8c1a" stroke-opacity="0.055" stroke-width="1"/>
+    </pattern>
+
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="softglow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <clipPath id="frame"><rect x="1" y="1" width="998" height="318" rx="14"/></clipPath>
+
+    <clipPath id="l1"><rect x="40" y="96" height="20" width="0"><animate attributeName="width" from="0" to="240" dur="0.5s" begin="0.3s" fill="freeze"/></rect></clipPath>
+    <clipPath id="l2"><rect x="40" y="122" height="20" width="0"><animate attributeName="width" from="0" to="560" dur="0.9s" begin="0.9s" fill="freeze"/></rect></clipPath>
+    <clipPath id="l3"><rect x="40" y="156" height="20" width="0"><animate attributeName="width" from="0" to="300" dur="0.6s" begin="2.0s" fill="freeze"/></rect></clipPath>
+    <clipPath id="l4"><rect x="40" y="182" height="20" width="0"><animate attributeName="width" from="0" to="560" dur="1.0s" begin="2.7s" fill="freeze"/></rect></clipPath>
+    <clipPath id="l5"><rect x="40" y="216" height="20" width="0"><animate attributeName="width" from="0" to="560" dur="1.1s" begin="4.0s" fill="freeze"/></rect></clipPath>
+    <clipPath id="l6"><rect x="40" y="250" height="22" width="0"><animate attributeName="width" from="0" to="560" dur="0.7s" begin="5.4s" fill="freeze"/></rect></clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1000" height="320" fill="url(#bg)"/>
+    <rect width="1000" height="320" fill="url(#grid)"/>
+
+    <!-- ambient glows -->
+    <circle cx="880" cy="70" r="150" fill="#ff8c1a" opacity="0.07" filter="url(#softglow)"/>
+    <circle cx="60" cy="300" r="130" fill="#ff003c" opacity="0.06" filter="url(#softglow)"/>
+
+    <!-- terminal chrome -->
+    <rect x="0" y="0" width="1000" height="34" fill="#05070a"/>
+    <line x1="0" y1="34" x2="1000" y2="34" stroke="#ff8c1a" stroke-opacity="0.28"/>
+    <circle cx="22" cy="17" r="5.5" fill="#ff5f57"/>
+    <circle cx="42" cy="17" r="5.5" fill="#febc2e"/>
+    <circle cx="62" cy="17" r="5.5" fill="#28c840"/>
+    <text x="500" y="22" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" fill="#7d8590">
+      root@rootcamp.dev: ~/percevalfox — zsh — 132×34
+    </text>
+    <text x="960" y="22" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11" fill="#39ff14" opacity="0.75">
+      ● LIVE
+      <animate attributeName="opacity" values="0.75;0.2;0.75" dur="2s" repeatCount="indefinite"/>
+    </text>
+
+    <!-- typed lines -->
+    <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14.5">
+      <g clip-path="url(#l1)">
+        <text x="40" y="111" fill="#39ff14">$</text>
+        <text x="58" y="111" fill="#e6edf3">whoami --full</text>
+      </g>
+      <g clip-path="url(#l2)">
+        <text x="40" y="137" fill="#ff8c1a">→ Steven Le Bris · Lead DevSecOps · Red Team · Enseignant</text>
+      </g>
+
+      <g clip-path="url(#l3)">
+        <text x="40" y="171" fill="#39ff14">$</text>
+        <text x="58" y="171" fill="#e6edf3">cat ~/.creed</text>
+      </g>
+      <g clip-path="url(#l4)">
+        <text x="40" y="197" fill="#c9a227">"Casser proprement. Reconstruire solidement. Transmettre."</text>
+      </g>
+
+      <g clip-path="url(#l5)">
+        <text x="40" y="231" fill="#39ff14">$</text>
+        <text x="58" y="231" fill="#e6edf3">./init --soc --cert --k8s --pentest --hardening</text>
+      </g>
+
+      <g clip-path="url(#l6)">
+        <text x="40" y="266" fill="#39ff14" font-size="14">[  OK  ]</text>
+        <text x="112" y="266" fill="#7d8590" font-size="14">uplink established · 7+ ans en zone rouge</text>
+      </g>
+
+      <!-- blinking cursor -->
+      <rect x="40" y="286" width="9" height="17" fill="#39ff14" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;0;1;0;1" keyTimes="0;0.85;0.87;0.92;0.94;0.98;1" dur="7s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+
+    <!-- ASCII fox -->
+    <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" fill="url(#foxgrad)" filter="url(#glow)" xml:space="preserve" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="1.4s" begin="5.6s" fill="freeze"/>
+      <text x="700" y="86">      /\   /\ </text>
+      <text x="700" y="101">     //\\_//\\ </text>
+      <text x="700" y="116">     \_     _/ </text>
+      <text x="700" y="131">      / . . \  </text>
+      <text x="700" y="146">      \_\O/_/  </text>
+      <text x="700" y="161">       /   \_  </text>
+      <text x="700" y="176">       \     \_</text>
+      <text x="700" y="191">        [ [ /\ </text>
+      <text x="700" y="206">       _[ [ \ \</text>
+    </g>
+
+    <!-- title block -->
+    <text x="700" y="248" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="30" font-weight="700"
+          fill="url(#titlegrad)" filter="url(#glow)" letter-spacing="1.5" opacity="0">
+      PercevalFox
+      <animate attributeName="opacity" from="0" to="1" dur="1s" begin="6.0s" fill="freeze"/>
+    </text>
+    <text x="700" y="270" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11.5" fill="#7d8590" letter-spacing="2.2" opacity="0">
+      DEFEND · BREAK · AUTOMATE · TEACH
+      <animate attributeName="opacity" from="0" to="1" dur="1s" begin="6.4s" fill="freeze"/>
+    </text>
+
+    <!-- scanline sweep -->
+    <rect x="0" y="-40" width="1000" height="40" fill="#39ff14" opacity="0.05">
+      <animate attributeName="y" values="-40;320" dur="4.5s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- CRT scanlines -->
+    <g stroke="#000" stroke-opacity="0.16">
+      <path d="M0 38H1000M0 42H1000M0 46H1000M0 50H1000M0 54H1000M0 58H1000M0 62H1000M0 66H1000M0 70H1000M0 74H1000M0 78H1000M0 82H1000M0 86H1000M0 90H1000M0 94H1000M0 98H1000M0 102H1000M0 106H1000M0 110H1000M0 114H1000M0 118H1000M0 122H1000M0 126H1000M0 130H1000M0 134H1000M0 138H1000M0 142H1000M0 146H1000M0 150H1000M0 154H1000M0 158H1000M0 162H1000M0 166H1000M0 170H1000M0 174H1000M0 178H1000M0 182H1000M0 186H1000M0 190H1000M0 194H1000M0 198H1000M0 202H1000M0 206H1000M0 210H1000M0 214H1000M0 218H1000M0 222H1000M0 226H1000M0 230H1000M0 234H1000M0 238H1000M0 242H1000M0 246H1000M0 250H1000M0 254H1000M0 258H1000M0 262H1000M0 266H1000M0 270H1000M0 274H1000M0 278H1000M0 282H1000M0 286H1000M0 290H1000M0 294H1000M0 298H1000M0 302H1000M0 306H1000M0 310H1000M0 314H1000M0 318H1000"/>
+    </g>
+  </g>
+
+  <rect x="1" y="1" width="998" height="318" rx="14" fill="none" stroke="#ff8c1a" stroke-opacity="0.4"/>
+</svg>
