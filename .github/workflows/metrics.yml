@@ -2,7 +2,7 @@ name: 📊 Generate Metrics
 
 on:
   schedule:
-    - cron: "23 5 * * *"      # 1x / jour, le matin
+    - cron: "23 5 * * *"
   workflow_dispatch:
   push:
     branches: [main]
@@ -11,13 +11,15 @@ permissions:
   contents: write
 
 # Token requis : PAT classic, scope read:user uniquement.
-# Aucun autre scope n'est nécessaire pour les plugins ci-dessous.
+#
+# Note : une seule carte dense plutôt que 4 clairsemées. Les plugins sociaux
+# (topics, followup, reactions, discussions, people) sont volontairement absents :
+# ce compte a 3551 commits pour 0 PR et 0 discussion, ils rendraient des cadres vides.
 
 jobs:
   metrics:
     runs-on: ubuntu-latest
     steps:
-
       - name: Overview
         uses: lowlighter/metrics@latest
         with:
@@ -27,47 +29,13 @@ jobs:
           user: PercevalFox
           base: header, activity, community, repositories
           config_timezone: Europe/Paris
-          plugin_lines: yes
 
-      - name: Isometric calendar
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/calendar.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          user: PercevalFox
-          base: ""
-          config_timezone: Europe/Paris
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
 
-      - name: Languages
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/languages.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          user: PercevalFox
-          base: ""
           plugin_languages: yes
           plugin_languages_details: bytes-size, percentage
-          plugin_languages_limit: 12
+          plugin_languages_limit: 10
           plugin_languages_sections: most-used
 
-      # Remplace plugin_habits, cassé en amont :
-      # TypeError sur payload.commits undefined (push sans commit = branche/tag)
-      - name: Topics
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/topics.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          user: PercevalFox
-          base: ""
-          plugin_topics: yes
-          plugin_topics_mode: icons
-          plugin_topics_limit: 20
-          plugin_topics_sort: stars
+          plugin_lines: yes
