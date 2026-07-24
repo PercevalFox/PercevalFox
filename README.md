@@ -310,11 +310,7 @@ $ fleet --status
 
 <div align="center">
 
-<img src="./metrics/overview.svg" width="49%" alt="overview"/>
-<img src="./metrics/languages.svg" width="49%" alt="langages"/>
-
-<img src="./metrics/calendar.svg" width="49%" alt="calendrier isométrique"/>
-<img src="./metrics/topics.svg" width="49%" alt="topics"/>
+<img src="./metrics/overview.svg" width="62%" alt="metrics"/>
 
 <br/>
 
@@ -322,7 +318,7 @@ $ fleet --status
 
 <img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=PercevalFox&bg_color=0D1117&color=FF8C1A&line=FF003C&point=39FF14&area=true&hide_border=true" alt="activity"/>
 
-<sub>Les 4 cartes du haut sont générées par GitHub Actions et commitées dans ce repo — aucune dépendance externe au rendu.</sub>
+<sub>Carte générée par GitHub Actions et commitée dans ce repo — aucune dépendance externe au rendu.</sub>
 
 </div>
 
